@@ -49,3 +49,8 @@ var designCanvas = {
 		}
 	}
 };
+
+
+myForm.addEventListener('submit', makeGrid);
+colorPickerBtn.addEventListener('focusout', designCanvas.color);
+myTable.addEventListener('click', designCanvas.insertColor);
