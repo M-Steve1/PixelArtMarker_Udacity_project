@@ -26,3 +26,26 @@ function makeGrid(event, height, width) {
 	}
 
 }
+
+
+/** 
+  * @ Key {String} colorPickerValue.
+  * @ Key {function} color   update coloPickerValue.
+  * @ Key insertColor {function}.
+*/
+var designCanvas = {
+	colorPickerValue: document.getElementById('colorPicker').value,
+	color: function colorChoice() {
+		designCanvas.colorPickerValue = document.getElementById('colorPicker').value;
+	},
+	insertColor: function useColor(event) {
+		if (event.target.nodeName.toLowerCase() === 'td') {
+			var changeColor = event.target;
+			changeColor.style.backgroundColor = designCanvas.colorPickerValue;
+			submitBtn.addEventListener('click', function() { // reset grid
+				changeColor.style.backgroundColor = 'white';
+				myTable.innerHTML = '';
+			});
+		}
+	}
+};
